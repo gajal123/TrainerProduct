@@ -1,0 +1,105 @@
+{% extends 'trainer/base.html' %}
+{% block body %}
+
+<div class="container">
+
+    <div style=" margin-top:50px" class="mainbox col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">Proposal Generation</div>
+            </div>
+            <div class="panel-body">
+                <form method="post" action="/trainer/proposal/">{% csrf_token %}
+                    <div class="form-group required">
+                        <label class="control-label col-md-4  requiredField">Client Name : </label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md  textinput textInput form-control" id="client" maxlength="30" placeholder="{{ client }}" value="{{ client }}" name="clientname" style="margin-bottom: 10px" type="text" />
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                            <label class="control-label col-md-4  requiredField">Course Name : </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md  textinput textInput form-control" id="course2" maxlength="30" placeholder="{{course }}" value="{{ course }}"name="coursename" style="margin-bottom: 10px" type="text" />
+                            </div>
+                    </div>
+                    {% if coursetype in "Online" %}
+                        <div class="form-group required">
+                            <label class="control-label col-md-4  requiredField"> Training Type <span style="color:red" class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 "  style="margin-bottom: 10px">
+                                <label class="radio-inline"><input type="radio" checked="checked" name="select" value="Online"  style="margin-bottom: 10px">Online Training</label>
+                            </div>
+                        </div>
+                    <div class="form-group required">
+                            <label class="control-label col-md-4  requiredField">Rate per Hour : <span style="color:red" class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input type="number" class="input-md  textinput textInput form-control" maxlength="30" name="rate" style="margin-bottom: 10px" type="text" />
+                            </div>
+                    </div>
+                    <div class="form-group required">
+                            <label class="control-label col-md-4  requiredField">No of Hours: <span style="color:red" class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input type="number" class="input-md  textinput textInput form-control" maxlength="30" name="qty" style="margin-bottom: 10px" type="text" />
+                            </div>
+                    </div>
+
+                    {% else %}
+                        <div class="form-group required">
+                            <label class="control-label col-md-4  requiredField"> Training Type <span style="color:red" class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 "  style="margin-bottom: 10px">
+                                <label class="radio-inline"> <input type="radio" checked="checked" name="select" value="Classroom"  style="margin-bottom: 10px">Classroom Training</label>
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <label class="control-label col-md-4  requiredField">No. of Days : <span style="color:red" class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input type="number" class="input-md  textinput textInput form-control" maxlength="30" name="days" style="margin-bottom: 10px" type="text" />
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                                <label class="control-label col-md-4  requiredField">Rate: <span style="color:red" class="asteriskField">*</span> </label>
+                                <div class="controls col-md-8 ">
+                                    <input type="number" class="input-md  textinput textInput form-control" maxlength="30" name="rate" style="margin-bottom: 10px" type="text" />
+                                </div>
+                        </div>
+                        <div class="form-group required">
+                                <label class="control-label col-md-4  requiredField">Hours/Day: <span style="color:red" class="asteriskField">*</span> </label>
+                                <div class="controls col-md-8 ">
+                                    <input type="number" class="input-md  textinput textInput form-control" maxlength="30" name="qty" style="margin-bottom: 10px" type="text" />
+                                </div>
+                        </div>
+                    {% endif %}
+                    <div class="form-group required">
+                            <label class="control-label col-md-4  requiredField">Terms & Conditions(1) :</label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md  textinput textInput form-control" maxlength="70" name="tnc1" style="margin-bottom: 10px" type="text" />
+                            </div>
+                    </div>
+                    <div class="form-group required">
+                            <label class="control-label col-md-4  requiredField">Terms & Conditions(2) :</label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md  textinput textInput form-control" maxlength="70" name="tnc2" style="margin-bottom: 10px" type="text" />
+                            </div>
+                    </div>
+                    <div class="form-group required">
+                            <label class="control-label col-md-4  requiredField">Terms & Conditions(3) :</label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md  textinput textInput form-control" maxlength="70" name="tnc3" style="margin-bottom: 10px" type="text" />
+                            </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="aab controls col-md-4 "></div>
+                        <div class="controls col-md-8 ">
+                            <input type="submit" value="Submit Proposal" class="btn btn btn-primary"/>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

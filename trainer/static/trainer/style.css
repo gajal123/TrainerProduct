@@ -1,0 +1,13 @@
+
+
+.navbar{
+    border-radius: 0;
+}
+
+.navbar-default{
+    font-family: 'Satisfy', cursive;
+}
+
+table, th, td {
+    border: 1px solid black;
+}

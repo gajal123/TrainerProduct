@@ -1,0 +1,45 @@
+{% extends 'trainer/base.html' %}
+{% block body %}
+
+<div class="container">
+
+    <div style=" margin-top:50px" class="mainbox col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">Proposal Generation</div>
+            </div>
+            <div class="panel-body" >
+                <form method="post" action="/trainer/proposalform2/">{% csrf_token %}
+                    <div class="form-group required">
+                            <label class="control-label col-md-4  requiredField">Client Name <span style="color:red" class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input class="form-control" id="client" maxlength="30" name="clientname" style="margin-bottom: 10px" type="text" />
+                            </div>
+                    </div>
+                    <div class="form-group required">
+                            <label class="control-label col-md-4  requiredField">Course Name <span style="color:red" class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md  textinput textInput form-control" id="course" maxlength="30" name="coursename" style="margin-bottom: 10px" type="text" />
+                            </div>
+                    </div>
+                    <div class="form-group required">
+                        <label class="control-label col-md-4  requiredField"> Training Type <span style="color:red" class="asteriskField">*</span> </label>
+                        <div class="controls col-md-8 "  style="margin-bottom: 10px">
+                            <label class="radio-inline"><input type="radio" checked="checked" name="select" value="Online"  style="margin-bottom: 10px">Online Training</label>
+                            <label class="radio-inline"> <input type="radio" name="select" value="Classroom"  style="margin-bottom: 10px">Classroom Training</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="aab controls col-md-4 "></div>
+                        <div class="controls col-md-8 ">
+                            <input type="submit" name="Continue" value="Continue" class="btn btn btn-primary"/>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

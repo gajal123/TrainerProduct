@@ -1,0 +1,51 @@
+{% extends 'trainer/base.html' %}
+{% block body %}
+<div class="albums-container container-fluid">
+
+    <!-- Albums -->
+    <div class="row">
+        <h4>
+            <form action="/trainer/download/" method="post"> {% csrf_token %}
+                <div>
+                    <div >
+                        {% if query %}
+                            <h4>You searched for : {{ query }}</h4>
+                        {% endif %}
+                        <table class="table table-bordered table-hover">
+                            <tr class="bg-primary">
+                                <th >#</th>                                                                                                                 <A>A</A></A>
+                                <th>Name</th>
+                                <th>Technology</th>
+                                <th>Location</th>
+                                <th>Email-Id</th>
+                                <th>Contact</th>
+                                <th>PDF</th>
+                            </tr>
+                                {% for trainer in all_trainers %}
+                                <tr>
+
+                                <td><label class="btn btn-primary"><input type="checkbox" id="trainer{{ forloop.counter }}" name="checks" value="{{ trainer.id }}"></label></td>
+                                <td> <a href="/trainer/{{ trainer.id }}">{{ trainer.name }}</a></td>
+                                    <td>{{ trainer.technology }}</td></a>
+                                    <td>{{ trainer.location }}</td>
+                                    <td>{{ trainer.email }}</td>
+                                    <td>{{ trainer.contact }}</td>
+                                    <td><a href="/media/{{ trainer.trainer_profile }}"target="_blank" class="btn">View PDF</a></td>
+
+                                </tr>
+                                {% endfor %}
+                        </table>
+                    </div>
+                </div>
+                <div style="margin-left: 50px">
+                    <h4><font size="3" color="blue">  Attach Curriculum</font></h4>
+                    <label class="btn btn-primary"><input type="radio" name="radio" value="yes" checked> Yes</label>
+                    <label class="btn btn-primary"><input type="radio" name="radio" value="no"> No</label><br><br>
+                    <input type="submit" class="btn" value="Download ZIP">
+                </div>
+            </form>
+        </h4>
+
+    </div>
+
+{% endblock %}

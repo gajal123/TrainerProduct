@@ -1,0 +1,51 @@
+
+{% extends 'trainer/base.html' %}
+{% block title %} Trainerdetails {% endblock %}
+
+{% block trainers_active %}active{% endblock %}
+{% block body %}
+  <div class="container-fluid songs-container">
+
+    <div class="row">
+
+        <!-- Left Album Info -->
+        <div class="col-sm-4 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h1>{{ trainer.name }} <small>{{ trainer.technology }}</small></h1>
+                    <h4>({{ trainer.location }})</h4>
+                </div>
+            </div>
+        </div>
+        <!-- Right Song Info -->
+        <div class="col-sm-8 col-md-9">
+
+            <ul class="nav nav-pills" style="margin-bottom: 10px">
+                <li class="active"><a href="{% url 'trainer:index'%}">View All</a></li>
+            </ul>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                    <h3>All Technologies</h3>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Technologies</th>
+                            <th>Favorite</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for technology in trainer.technology_set.all %}
+                            <tr>
+                                <td>{{ technology }}</td>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+    </div>
+  </div>
+{% endblock %}

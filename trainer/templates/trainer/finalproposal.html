@@ -1,0 +1,87 @@
+{% extends 'trainer/base.html' %}
+{% block body %}
+
+    <div class="container">
+
+        <div style=" margin-top:50px" class="mainbox col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="panel-title">Final Proposal Generation</div>
+                </div>
+                <div class="panel-body" >
+                    <form method="post" action="/trainer/finalproposal/">{% csrf_token %}
+
+                        <div class="form-group required">
+                                <label class="control-label col-md-5  requiredField">Training Name <span class="asteriskField">*</span> </label>
+                                <div class="controls col-md-7 ">
+                                    <input class="form-control" maxlength="30" name="trainingname" style="margin-bottom: 10px" type="text" />
+                                </div>
+                        </div>
+                        <div class="form-group required">
+                                <label class="control-label col-md-5  requiredField">Company <span class="asteriskField">*</span> </label>
+                                <div class="controls col-md-7 ">
+                                    <input class="input-md  textinput textInput form-control" maxlength="30" name="companyname" style="margin-bottom: 10px" type="text" />
+                                </div>
+                        </div>
+                        <div class="form-group required">
+                                <label class="control-label col-md-5  requiredField">Mode Of Delivery : <span class="asteriskField">*</span> </label>
+                                <div class="controls col-md-7 ">
+                                    <input class="input-md  textinput textInput form-control" maxlength="30" name="mode" style="margin-bottom: 10px" type="text" />
+                                </div>
+                        </div>
+                        <div class="form-group required">
+                                <label class="control-label col-md-5  requiredField">Duration : <span class="asteriskField">*</span> </label>
+                                <div class="controls col-md-7 ">
+                                    <input class="input-md  textinput textInput form-control" maxlength="30" name="duration" style="margin-bottom: 10px" type="text" />
+                                </div>
+                        </div>
+                        <div class="form-group required">
+                                <label class="control-label col-md-5  requiredField">Quotation Number :</label>
+                                <div class="controls col-md-7 ">
+                                    <input class="input-md  textinput textInput form-control" maxlength="30" name="quotation" style="margin-bottom: 10px" type="text" />
+                                </div>
+                        </div>
+                        <div class="form-group required">
+                                <label class="control-label col-md-5  requiredField">Training Venue & City :</label>
+                                <div class="controls col-md-7 ">
+                                    <input class="input-md  textinput textInput form-control" maxlength="30" name="venue" style="margin-bottom: 10px" type="text" />
+                                </div>
+                        <div class="form-group required">
+                                <label class="control-label col-md-5  requiredField">Trainer’s Name :</label>
+                                <div class="controls col-md-7 ">
+                                    <input class="input-md  textinput textInput form-control" maxlength="30" name="trainername" style="margin-bottom: 10px" type="text" />
+                                </div>
+                        </div>
+                        <div class="form-group required">
+                                <label class="control-label col-md-5  requiredField">Training Infrastructure  :</label>
+                                <div class="controls col-md-7 ">
+                                    <input class="input-md  textinput textInput form-control" maxlength="30" name="infrastructure" style="margin-bottom: 10px" type="text" />
+                                </div>
+                        </div>
+                        <div class="form-group required">
+                                <label class="control-label col-md-5  requiredField">Rate :</label>
+                                <div class="controls col-md-7 ">
+                                    <input class="input-md  textinput textInput form-control" maxlength="30" name="rate" style="margin-bottom: 10px" type="text" />
+                                </div>
+                        </div>
+                        <div class="form-group required">
+                                <label class="control-label col-md-5  requiredField">Trainer’s Incidental, Travel & Accommodation  :</label>
+                                <div class="controls col-md-7 ">
+                                    <input class="input-md  textinput textInput form-control" maxlength="30" name="ita" style="margin-bottom: 10px" type="text" />
+                                </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="aab controls col-md-5 "></div>
+                            <div class="controls col-md-7 ">
+                                <input type="submit" name="Submit" value="Submit" class="btn btn btn-primary"/>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'trainer/base.html' %}
+{% block body %}
+
+<div class="container">
+
+    <div style=" margin-top:50px" class="mainbox col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">Certificate Generation</div>
+            </div>
+            <div class="panel-body">
+                <form method="post" action="/trainer/certificategenerate/">{% csrf_token %}
+                    <div class="form-group required">
+                            <label class="control-label col-md-4  requiredField"> Name : <span style="color:red" class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md  textinput textInput form-control" maxlength="30" name="name" style="margin-bottom: 10px" type="text" />
+                            </div>
+                    </div>
+                    <div class="form-group required">
+                            <label class="control-label col-md-4  requiredField"> Course : <span style="color:red" class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md  textinput textInput form-control" maxlength="30" name="course" style="margin-bottom: 10px" type="text" />
+                            </div>
+                    </div>
+                    <div class="form-group required">
+                            <label class="control-label col-md-4  requiredField"> Certificate ID : <span style="color:red" class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md  textinput textInput form-control" value="Skill / 18050123 / " maxlength="30" name="certiid" style="margin-bottom: 10px" type="text" />
+                            </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="aab controls col-md-4 "></div>
+                        <div class="controls col-md-8 ">
+                            <input type="submit" value="Generate Certificate" class="btn btn-success"/>
+                        </div>
+                    </div>
+                <br>
+                </form>
+            </div>
+        </div>
+        <form method="post" action="/trainer/excelupload/" enctype="multipart/form-data">{% csrf_token %}
+            {% if form %}
+                <div class="form-group">
+                    {{ form.as_p }}
+                    <input type="submit" value="Upload Excel" onclick=" myFunction()"class="btn"/>
+                </div>
+            {% else %}
+                <div class="form-group">
+                    {{ form.as_p }}
+                    <input type="submit" value="Bulk Upload"  class="btn btn-success"/>
+                </div>
+            {% endif %}
+        </form>
+        {% if form %}
+            <form method="post" action="../uploadcertificate/">{% csrf_token %}
+                <div class="form-group">
+                    <input type="submit" value="Generate Certificates" class="btn btn-success"/>
+                </div>
+            </form>
+        {% endif %}
+
+    </div>
+</div>
+<script>
+function myFunction() {
+    alert("Uploaded Excel");
+}
+
+</script>
+
+
+{% endblock %}
